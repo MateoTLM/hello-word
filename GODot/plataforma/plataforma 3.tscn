@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc26sltoin3th"]
+
+[ext_resource type="Texture2D" uid="uid://b38ufga1ywtfn" path="res://imagenes/piedra y pasto.png" id="1_ofcpc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_txoug"]
+size = Vector2(461.199, 27.94)
+
+[node name="piedra" type="StaticBody2D"]
+
+[node name="piedra" type="Sprite2D" parent="."]
+scale = Vector2(1.55285, 1.77212)
+texture = ExtResource("1_ofcpc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.39636, 13.9942)
+shape = SubResource("RectangleShape2D_txoug")
+one_way_collision = true

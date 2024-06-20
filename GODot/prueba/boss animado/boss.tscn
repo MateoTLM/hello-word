@@ -1,0 +1,168 @@
+[gd_scene load_steps=8 format=3 uid="uid://bia1c2th4wc6w"]
+
+[ext_resource type="Texture2D" uid="uid://vpu3x3ge2w70" path="res://pj/boss.png" id="1_tp2lk"]
+[ext_resource type="Texture2D" uid="uid://cjo7kkme8s2xl" path="res://pj/mano de boss.png" id="2_xqe6c"]
+[ext_resource type="Texture2D" uid="uid://bpb1q7aynq8l3" path="res://pj/barril.png" id="3_5iu2a"]
+
+[sub_resource type="Animation" id="Animation_5vv3a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Boss/ManoDeBoss:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-94, -69)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Boss/ManoDeBoss/Barril:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Boss:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_atngc"]
+resource_name = "reposo"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Boss/ManoDeBoss:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-86, -50), Vector2(-94, -69)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Boss/ManoDeBoss/Barril:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_m7jyd"]
+resource_name = "lanzar barriles"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Boss:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, 1), Vector2(1, 1), Vector2(-1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Boss/ManoDeBoss:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.8, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-86, -50), Vector2(-38.5, -50.25), Vector2(-112.5, -195.25), Vector2(-237.5, -70.25)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Boss/ManoDeBoss/Barril:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t6cca"]
+_data = {
+"RESET": SubResource("Animation_5vv3a"),
+"lanzar barriles": SubResource("Animation_m7jyd"),
+"reposo": SubResource("Animation_atngc")
+}
+
+[node name="boss" type="Node2D"]
+
+[node name="Boss" type="Sprite2D" parent="."]
+position = Vector2(645.5, 351.25)
+scale = Vector2(-1, 1)
+texture = ExtResource("1_tp2lk")
+
+[node name="ManoDeBoss" type="Sprite2D" parent="Boss"]
+position = Vector2(-94, -69)
+texture = ExtResource("2_xqe6c")
+
+[node name="Barril" type="Sprite2D" parent="Boss/ManoDeBoss"]
+visible = false
+position = Vector2(-150, -27)
+scale = Vector2(0.227778, 0.239496)
+texture = ExtResource("3_5iu2a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_t6cca")
+}
+autoplay = "lanzar barriles"
+
+[node name="Barril" type="Sprite2D" parent="."]
+position = Vector2(301, 240)
+scale = Vector2(0.29473, 0.283419)
+texture = ExtResource("3_5iu2a")
+
+[node name="Barril2" type="Sprite2D" parent="."]
+position = Vector2(193, 240)
+scale = Vector2(0.29473, 0.283419)
+texture = ExtResource("3_5iu2a")
+
+[node name="Barril3" type="Sprite2D" parent="."]
+position = Vector2(90, 242)
+scale = Vector2(0.29473, 0.283419)
+texture = ExtResource("3_5iu2a")
+
+[node name="Barril4" type="Sprite2D" parent="."]
+position = Vector2(246, 150)
+scale = Vector2(0.29473, 0.283419)
+texture = ExtResource("3_5iu2a")
+
+[node name="Barril5" type="Sprite2D" parent="."]
+position = Vector2(142, 148)
+scale = Vector2(0.29473, 0.283419)
+texture = ExtResource("3_5iu2a")

@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://dim3p3gbow4hn"]
+
+[ext_resource type="PackedScene" uid="uid://bjniwgcrd22te" path="res://plataforma/puente.tscn" id="1_2qyrm"]
+[ext_resource type="PackedScene" uid="uid://bc26sltoin3th" path="res://plataforma/plataforma 3.tscn" id="2_6jof0"]
+[ext_resource type="PackedScene" uid="uid://cs82fbawn8k4g" path="res://personaje/tilin.tscn" id="3_258se"]
+[ext_resource type="PackedScene" uid="uid://g0pt8enpu4ta" path="res://objetos/barril.tscn" id="4_r68ub"]
+[ext_resource type="PackedScene" uid="uid://c5w2x3utsfg8r" path="res://plataforma/plataforma god.tscn" id="5_7jek1"]
+
+[node name="nivel 1" type="Node2D"]
+position = Vector2(565, 1007)
+rotation = -0.0224569
+scale = Vector2(0.788972, 0.837542)
+
+[node name="piedra4" parent="." instance=ExtResource("2_6jof0")]
+position = Vector2(1616.43, 265.889)
+rotation = 0.169297
+
+[node name="piedra5" parent="." instance=ExtResource("2_6jof0")]
+position = Vector2(2265.02, 394.262)
+rotation = 0.169297
+
+[node name="piedra2" parent="." instance=ExtResource("2_6jof0")]
+position = Vector2(366, -430)
+rotation = 0.169297
+
+[node name="piedra6" parent="." instance=ExtResource("2_6jof0")]
+position = Vector2(929.067, 168.941)
+rotation = 0.169297
+
+[node name="piedra3" parent="." instance=ExtResource("2_6jof0")]
+position = Vector2(-227, -833)
+rotation = 0.169297
+
+[node name="tilin" parent="." instance=ExtResource("3_258se")]
+position = Vector2(4021.36, 1066.78)
+rotation = -0.0435358
+
+[node name="RigidBody2D3" parent="." instance=ExtResource("4_r68ub")]
+position = Vector2(2092.8, 66.9708)
+
+[node name="RigidBody2D4" parent="." instance=ExtResource("4_r68ub")]
+position = Vector2(1035.48, -625.386)
+
+[node name="RigidBody2D5" parent="." instance=ExtResource("4_r68ub")]
+position = Vector2(-202.046, -1097.03)
+
+[node name="puente" parent="." instance=ExtResource("1_2qyrm")]
+position = Vector2(3228.19, 1525.31)
+rotation = -0.0523599
+scale = Vector2(1.67778, 2.0263)
+
+[node name="suelo god" type="Node2D" parent="."]
+
+[node name="plataform god" parent="suelo god" instance=ExtResource("5_7jek1")]
+position = Vector2(6408.24, 603.741)
+rotation = 0.0698132
+scale = Vector2(5.73462, 4.49846)

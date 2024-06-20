@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5k66a28sgnyi"]
+
+[ext_resource type="Texture2D" uid="uid://cwm32fg6sjkpi" path="res://imagenes/boss.jpg" id="1_1xqf8"]
+[ext_resource type="Texture2D" uid="uid://da55f1lxrr61g" path="res://imagenes/manos de boss.png" id="2_wyebq"]
+[ext_resource type="Texture2D" uid="uid://darluqueo88hu" path="res://imagenes/barril (1).png" id="3_rtmyc"]
+
+[sub_resource type="Animation" id="Animation_l4t5x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Boss/ManosDeBoss/Barril(1):visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ge107"]
+resource_name = "lanzar barriles"
+length = 1.5
+
+[sub_resource type="Animation" id="Animation_sp2ba"]
+resource_name = "reposo"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Boss/ManosDeBoss:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(128, 174)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Boss/ManosDeBoss/Barril(1):visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jl7u4"]
+_data = {
+"RESET": SubResource("Animation_l4t5x"),
+"lanzar barriles": SubResource("Animation_ge107"),
+"reposo": SubResource("Animation_sp2ba")
+}
+
+[node name="boss animado" type="Node2D"]
+
+[node name="Boss" type="Sprite2D" parent="."]
+texture = ExtResource("1_1xqf8")
+
+[node name="ManosDeBoss" type="Sprite2D" parent="Boss"]
+position = Vector2(142, 210)
+scale = Vector2(1.14192, 1.10037)
+texture = ExtResource("2_wyebq")
+
+[node name="Barril(1)" type="Sprite2D" parent="Boss/ManosDeBoss"]
+visible = false
+position = Vector2(-98.9558, -103.601)
+scale = Vector2(0.256255, 0.2806)
+texture = ExtResource("3_rtmyc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jl7u4")
+}

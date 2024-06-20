@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjniwgcrd22te"]
+
+[ext_resource type="Texture2D" uid="uid://gocc53dlbrcc" path="res://imagenes/puente.png" id="1_538mj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_txoug"]
+size = Vector2(1699, 68.5)
+
+[node name="puente" type="StaticBody2D"]
+
+[node name="Puente" type="Sprite2D" parent="."]
+position = Vector2(15, 40)
+scale = Vector2(1.27834, 1.02506)
+texture = ExtResource("1_538mj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_txoug")
+one_way_collision = true

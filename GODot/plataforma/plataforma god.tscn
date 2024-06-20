@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5w2x3utsfg8r"]
+
+[ext_resource type="Texture2D" uid="uid://cvq1on0gndwhw" path="res://imagenes/roma (1).png" id="1_cwwpr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_txoug"]
+size = Vector2(461.199, 27.94)
+
+[node name="plataform god" type="StaticBody2D"]
+
+[node name="god" type="Sprite2D" parent="."]
+position = Vector2(2, 135)
+scale = Vector2(1.02257, 0.970658)
+texture = ExtResource("1_cwwpr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.898493, 1.89792)
+shape = SubResource("RectangleShape2D_txoug")
